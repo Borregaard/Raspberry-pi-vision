@@ -27,3 +27,4 @@ def LedBlink():
 
 
 CameraModule()
+LedBlink()
