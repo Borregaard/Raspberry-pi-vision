@@ -1,5 +1,12 @@
 import RPi.GPIO as GPIO
 from time import sleep
+from picamera import PiCamera
+
+camera = PiCamera()
+
+sleep(2)
+camera.capture("/Pictures/img.jpg")
+print("Done.")
 
 print('Hello, world!')
 

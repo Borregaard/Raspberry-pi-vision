@@ -1,2 +1,3 @@
 #!/bin/bash
-pip install RPi.GPIO
+pip3 install RPi.GPIO
+pip3 install picamera
