@@ -35,8 +35,18 @@ def OpencvObejct():
         camera.capture(image, 'bgr')
         image = image.reshape((240, 320, 3))
 
+def Laser():
+    LASER_PIN = 14
 
-OpencvObejct()
+    GPIO.setwarnings(False)
 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(LASER_PIN, GPIO.OUT)
+    GPIO.output(LASER_PIN, True)
+
+
+#OpencvObejct()
 #CameraModule()
 #LedBlink()
+
+Laser()
