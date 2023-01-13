@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 from picamera import PiCamera
 import numpy as np
-import cv2
+#import cv2
 
 def CameraModule():
     camera = PiCamera()
