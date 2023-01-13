@@ -24,3 +24,6 @@ def LedBlink():
         sleep(2)
         GPIO.output(LED_PIN, False)
         sleep(2)
+
+
+CameraModule()
