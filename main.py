@@ -5,7 +5,7 @@ from picamera import PiCamera
 
 def CameraModule():
     camera = PiCamera()
-    camera.resolution = (1920, 1080)
+    camera.resolution = (800, 500)
     camera.start_preview()
     # Camera warm-up time
     sleep(2)
