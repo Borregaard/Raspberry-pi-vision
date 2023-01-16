@@ -46,7 +46,7 @@ def Laser():
 
 
 #OpencvObejct()
-#CameraModule()
 #LedBlink()
 
+CameraModule()
 Laser()
