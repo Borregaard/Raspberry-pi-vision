@@ -6,7 +6,7 @@ import numpy as np
 
 def CameraModule():
     camera = PiCamera()
-    camera.resolution = (600, 400)
+    camera.resolution = (600, 300)
     camera.start_preview()
     # Camera warm-up time
     sleep(200)
