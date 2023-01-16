@@ -29,6 +29,7 @@ def LedBlink():
 def OpencvObejct():
     with PiCamera() as camera:
         camera.resolution = (320, 240)
+        camera.start_preview()
         camera.framerate = 24
         sleep(2)
         image = np.empty((240 * 320 * 3,), dtype=np.uint8)
