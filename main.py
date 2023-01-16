@@ -9,7 +9,7 @@ def CameraModule():
     camera.resolution = (800, 500)
     camera.start_preview()
     # Camera warm-up time
-    sleep(2)
+    sleep(200)
     camera.capture('foo.jpg')
 
 def LedBlink():
