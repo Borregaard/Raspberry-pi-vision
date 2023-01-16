@@ -2,14 +2,14 @@ import RPi.GPIO as GPIO
 from time import sleep
 from picamera import PiCamera
 import numpy as np
-#import cv2
+import cv2
 
 def CameraModule():
     camera = PiCamera()
     camera.resolution = (600, 300)
     camera.start_preview()
     # Camera warm-up time
-    sleep(200)
+    sleep(2)
     camera.capture('foo.jpg')
 
 def LedBlink():
@@ -35,6 +35,10 @@ def OpencvObejct():
         camera.capture(image, 'bgr')
         image = image.reshape((240, 320, 3))
 
+        status = cv2.imwrite('/Pictures/python_grey.png', image)
+ 
+        print("Image written to file-system : ",status)
+
 def Laser():
     LASER_PIN = 14
 
@@ -45,8 +49,8 @@ def Laser():
     GPIO.output(LASER_PIN, True)
 
 
-#OpencvObejct()
-#LedBlink()
 
+
+OpencvObejct()
 CameraModule()
 Laser()
