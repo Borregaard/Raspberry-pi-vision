@@ -36,7 +36,7 @@ def OpencvObejct():
         camera.capture(image, 'bgr')
         image = image.reshape((240, 320, 3))
 
-        status = cv2.imwrite('/Pictures/python_grey.png', image)
+        status = cv2.imwrite('/python_grey.png', image)
  
         print("Image written to file-system : ",status)
 
