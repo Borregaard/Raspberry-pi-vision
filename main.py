@@ -30,6 +30,12 @@ def LedBlink():
 
 
 def OpencvObejct():
+
+    # create a PNG file
+    # in current directory
+    fp = open('opencv.png', 'x')
+    fp.close()
+
     with PiCamera() as camera:
         camera.resolution = (320, 240)
         camera.start_preview()
@@ -39,7 +45,7 @@ def OpencvObejct():
         camera.capture(image, 'bgr')
         image = image.reshape((240, 320, 3))
 
-        status = cv2.imwrite('foo.jpg', image)
+        status = cv2.imwrite('opencv.png', image)
 
         print("Image written to file-system : ", status)
 
@@ -52,6 +58,9 @@ def Laser():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(LASER_PIN, GPIO.OUT)
     GPIO.output(LASER_PIN, True)
+    sleep(5)
+    GPIO.output(LASER_PIN, False)
+    
 
 
 OpencvObejct()
