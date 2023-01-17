@@ -19,14 +19,13 @@ def CameraModule():
 
 
 def OpencvObejct():
-    file_name = 'opencv.png'    
+    file_name = 'opencv.png'
 
     if not os.path.exists(file_name):
         # create a PNG file
         # in current directory
         fp = open(file_name, 'x')
         fp.close()
-    
 
     with PiCamera() as camera:
         res = [320, 480]
@@ -51,10 +50,10 @@ def VideoOpencv():
         ret, frame = cap.read()
 
         # Our operations on the frame come here
-        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         # Display the resulting frame
-        cv2.imshow('frame', frame)
+        cv2.imshow('frame', gray)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             return
 
@@ -71,14 +70,13 @@ def Laser():
     GPIO.output(LASER_PIN, True)
     sleep(5)
     GPIO.output(LASER_PIN, False)
-    
 
 
 if __name__ == "__main__":
-    #OpencvObejct()
+    # OpencvObejct()
     # CameraModule()
     # Laser()
 
     VideoOpencv()
 
-    print('succuss')    
+    print('succuss')
