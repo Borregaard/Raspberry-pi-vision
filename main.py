@@ -45,9 +45,18 @@ def OpencvObejct():
 def VideoOpencv():
     cap = cv2.VideoCapture(-1)
 
-    while(True):
+    if not cap.isOpened():
+        print("Cannot open camera")
+        exit()
+    
+    while True:
         # Capture frame-by-frame
         ret, frame = cap.read()
+        
+        # if frame is read correctly ret is True
+        if not ret:
+            print("Can't receive frame (stream end?). Exiting ...")
+            break
 
         print(frame.shape)
 
