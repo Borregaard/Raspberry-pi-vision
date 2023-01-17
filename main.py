@@ -5,6 +5,9 @@ import numpy as np
 import cv2
 
 
+LASER_PIN = 14
+
+
 def CameraModule():
     camera = PiCamera()
     camera.resolution = (600, 300)
@@ -12,21 +15,6 @@ def CameraModule():
     # Camera warm-up time
     sleep(2)
     camera.capture('foo.jpg')
-
-
-def LedBlink():
-    LED_PIN = 14
-
-    GPIO.setwarnings(False)
-
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(LED_PIN, GPIO.OUT)
-
-    for _ in range(20):
-        GPIO.output(LED_PIN, True)
-        sleep(2)
-        GPIO.output(LED_PIN, False)
-        sleep(2)
 
 
 def OpencvObejct():
@@ -51,8 +39,6 @@ def OpencvObejct():
 
 
 def Laser():
-    LASER_PIN = 14
-
     GPIO.setwarnings(False)
 
     GPIO.setmode(GPIO.BCM)
@@ -63,8 +49,9 @@ def Laser():
     
 
 
-OpencvObejct()
-CameraModule()
-Laser()
+if __name__ == "__main__":
+    OpencvObejct()
+    CameraModule()
+    Laser()
 
-print('succuss')
+    print('succuss')    
