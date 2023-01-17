@@ -43,6 +43,25 @@ def OpencvObejct():
         print("Image written to file-system : ", status)
 
 
+def VideoOpencv():
+    file_name = 'image.jpg'    
+
+    if not os.path.exists(file_name):
+        # create a PNG file
+        # in current directory
+        fp = open(file_name, 'x')
+        fp.close()
+
+    cap = cv2.VideoCapture(0)
+
+    # Capture frame
+    ret, frame = cap.read()
+    if ret:
+    	cv2.imwrite('image.jpg', frame)
+
+    cap.release()
+
+
 def Laser():
     GPIO.setwarnings(False)
 
@@ -55,8 +74,10 @@ def Laser():
 
 
 if __name__ == "__main__":
-    OpencvObejct()
-    CameraModule()
-    Laser()
+    #OpencvObejct()
+    # CameraModule()
+    # Laser()
+
+    VideoOpencv()
 
     print('succuss')    
