@@ -21,7 +21,7 @@ def CameraModule():
 def OpencvObejct():
     file_name = 'opencv.png'    
 
-    if os.path.exists(file_name):
+    if not os.path.exists(file_name):
         # create a PNG file
         # in current directory
         fp = open(file_name, 'x')
