@@ -54,8 +54,14 @@ def VideoOpencv():
 
     cap = cv2.VideoCapture(0)
 
+    print(cap)
+
     # Capture frame
     ret, frame = cap.read()
+
+    print(ret)
+    print(frame)
+
     if ret:
     	cv2.imwrite('image.jpg', frame)
 
