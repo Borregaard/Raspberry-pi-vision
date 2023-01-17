@@ -3,6 +3,7 @@ from time import sleep
 from picamera import PiCamera
 import numpy as np
 import cv2
+import os
 
 
 LASER_PIN = 14
@@ -18,11 +19,14 @@ def CameraModule():
 
 
 def OpencvObejct():
+    file_name = 'opencv.png'    
 
-    # create a PNG file
-    # in current directory
-    fp = open('opencv.png', 'x')
-    fp.close()
+    if os.path.exists(file_name):
+        # create a PNG file
+        # in current directory
+        fp = open(file_name, 'x')
+        fp.close()
+    
 
     with PiCamera() as camera:
         camera.resolution = (320, 240)
