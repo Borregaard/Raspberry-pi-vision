@@ -53,6 +53,9 @@ def VideoOpencv():
         # Capture frame-by-frame
         ret, frame = cap.read()
         
+        print(ret)
+        print(frame)
+
         # if frame is read correctly ret is True
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
