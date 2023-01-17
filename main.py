@@ -51,31 +51,32 @@ def VideoOpencv():
         print("Cannot open camera")
         exit()
     
-    while True:
-        # Capture frame-by-frame
-        ret, frame = cap.read()
+    #while True:
         
-        print(ret)
-        print(frame)
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    
+    print(ret)
+    print(frame)   
 
-        # if frame is read correctly ret is True
-        if not ret:
-            print("Can't receive frame (stream end?). Exiting ...")
-            break
+    # if frame is read correctly ret is True
+    if not ret:
+        print("Can't receive frame (stream end?). Exiting ...")
+        return  
 
-        print(frame.shape)
+    print(frame.shape) 
 
-        # Our operations on the frame come here
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # Our operations on the frame come here
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
 
-        # Display the resulting frame
-        cv2.imshow('frame', gray)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            return
-
-        # When everything done, release the capture
-        cap.release()
-        cv2.destroyAllWindows()
+    # Display the resulting frame
+    cv2.imshow('frame', gray)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        return 
+        
+    # When everything done, release the capture
+    cap.release()
+    cv2.destroyAllWindows()
 
 
 def Laser():
