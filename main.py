@@ -43,7 +43,9 @@ def OpencvObejct():
 
 
 def VideoOpencv():
-    cap = cv2.VideoCapture(-1)
+    cap = cv2.VideoCapture(0)
+
+    print(cap)
 
     if not cap.isOpened():
         print("Cannot open camera")
