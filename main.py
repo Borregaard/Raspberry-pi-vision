@@ -44,28 +44,23 @@ def OpencvObejct():
 
 
 def VideoOpencv():
-    file_name = 'image.jpg'    
-
-    if not os.path.exists(file_name):
-        # create a PNG file
-        # in current directory
-        fp = open(file_name, 'x')
-        fp.close()
-
     cap = cv2.VideoCapture(0)
 
-    print(cap)
+    while(True):
+        # Capture frame-by-frame
+        ret, frame = cap.read()
 
-    # Capture frame
-    ret, frame = cap.read()
+    # Our operations on the frame come here
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    print(ret)
-    print(frame)
+    # Display the resulting frame
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        return
 
-    if ret:
-    	cv2.imwrite('image.jpg', frame)
-
+    # When everything done, release the capture
     cap.release()
+    cv2.destroyAllWindows()
 
 
 def Laser():
