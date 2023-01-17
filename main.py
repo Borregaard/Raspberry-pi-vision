@@ -29,7 +29,7 @@ def OpencvObejct():
     
 
     with PiCamera() as camera:
-        res = [600, 400]
+        res = [480, 320]
         camera.resolution = (res[0], res[1])
         camera.start_preview()
         camera.framerate = 24
