@@ -34,9 +34,9 @@ def OpencvObejct():
         camera.start_preview()
         camera.framerate = 24
         sleep(2)
-        image = np.empty((res[0] * res[1] * 1,), dtype=np.uint8)
+        image = np.empty((res[0] * res[1] * 3,), dtype=np.uint8)
         camera.capture(image, 'bgr')
-        image = image.reshape((res[0], res[1], 1))
+        image = image.reshape((res[0], res[1], 3))
 
         status = cv2.imwrite('opencv.png', image)
 
