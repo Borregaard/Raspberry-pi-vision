@@ -73,36 +73,13 @@ def Works():
         cv2.imshow('frame', frame)
         #cv2.imshow('gray', gray)
 
-        b = frame.copy()
-        # set green and red channels to 0
-        b[:, :, 1] = 0
-        b[:, :, 2] = 0
+        channel_initials = list('BGR')
 
-
-        g = frame.copy()
-        # set blue and red channels to 0
-        g[:, :, 0] = 0
-        g[:, :, 2] = 0
-
-        r = frame.copy()
-        # set blue and green channels to 0
-        r[:, :, 0] = 0
-        r[:, :, 1] = 0
-
-
-        # RGB - Blue
-        cv2.imshow('B-RGB', b)
-
-        # RGB - Green
-        cv2.imshow('G-RGB', g)
-
-        # RGB - Red
-        cv2.imshow('R-RGB', r)
-        
-        cv2.imwrite('/Frame', frame)
-        cv2.imwrite('/B-RGB', b)
-        cv2.imwrite('/G-RGB', g)
-        cv2.imwrite('/R-RGB', r)
+        for channel_index in range(3):
+            channel = np.zeros(shape=frame.shape, dtype=np.uint8)
+            channel[:,:,channel_index] = frame[:,:,channel_index]
+            cv2.imshow(f'{channel_initials[channel_index]}-RGB', channel)
+        cv2.waitKey(0)
         
         if cv2.waitKey(20) & 0xFF == ord('q'):
             break
