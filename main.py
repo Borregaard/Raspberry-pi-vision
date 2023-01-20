@@ -136,6 +136,11 @@ def LaserDection():
             edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         print("Number of Contours found = " + str(len(contours)))
 
+        print(contours)
+        print('contours')
+
+        print(hierarchy)
+        print('hierarchy')
         # Draw all contours
         # -1 signifies drawing all contours
         for c in contours:
