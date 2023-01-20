@@ -130,7 +130,9 @@ def LaserDection():
         sleep(5)
         cv2.imshow('Canny Edges After Contouring', edged)
         print(cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE))
-        _, contours, hierarchy = cv2.findContours(
+        #_, contours, hierarchy = cv2.findContours(
+        #    edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours, hierarchy = cv2.findContours(
             edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         print("Number of Contours found = " + str(len(contours)))
 
