@@ -45,6 +45,8 @@ def VideoOpencv(cap2):
     ret, frame = cap.read()
     #frame = cap.GetFrame()
 
+    print(frame.shape)
+
     # Our operations on the frame come here
     #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
