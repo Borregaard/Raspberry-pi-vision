@@ -140,6 +140,8 @@ def LaserDection():
         # -1 signifies drawing all contours
         for c in contours:
             M = cv2.moments(c)
+            print(M)
+            print('M')
             cX = int(M["m10"] / M["m00"])
             cY = int(M["m01"] / M["m00"])
             cv2.drawContours(frame, c, -1, (0, 255, 0), 3)
