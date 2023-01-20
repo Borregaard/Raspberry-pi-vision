@@ -95,7 +95,7 @@ def LaserDection():
     lower_red = np.array([0,0,255])
     #156, 100, 40
     upper_red = np.array([180,255,255])
-    while(1):
+    while(True):
         ret, frame0 = cap.read()
         frame = cv2.flip(frame0,0)
         frame = frame[50:360,280:380]
