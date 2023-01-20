@@ -99,6 +99,11 @@ def Works():
         # RGB - Red
         cv2.imshow('R-RGB', r)
         
+        cv2.imwrite('/Frame', frame)
+        cv2.imwrite('/B-RGB', b)
+        cv2.imwrite('/G-RGB', g)
+        cv2.imwrite('/R-RGB', r)
+        
         if cv2.waitKey(20) & 0xFF == ord('q'):
             break
 
