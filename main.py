@@ -19,7 +19,7 @@ def Laser():
 
 class VideoCamera():
     def __init__(self):
-        self.cap = cv2.VideoCapture(-1)
+        self.cap = cv2.VideoCapture(0)
         print(self.cap)
 
         if not self.cap.isOpened():
@@ -41,7 +41,7 @@ class VideoCamera():
 
 
 def VideoOpencv(cap2):
-    cap = cv2.VideoCapture(-1)
+    cap = cv2.VideoCapture(0)
     ret, frame = cap.read()
     #frame = cap.GetFrame()
 
