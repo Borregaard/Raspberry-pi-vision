@@ -42,41 +42,45 @@ def OpencvObejct():
         print("Image written to file-system : ", status)
 
 
-def VideoOpencv():
-    cap = cv2.VideoCapture(0)
+class VideoCamera():
+    def __init__(self):
+        self.cap = cv2.VideoCapture(0)
+        print(cap)
 
-    print(cap)
-
-    if not cap.isOpened():
-        print("Cannot open camera")
-        exit()
+        if not cap.isOpened():
+            print("Cannot open camera")
+            exit()
     
-    #while True:
+    def GetFrame(self):
+        # Capture frame-by-frame
+        self.ret, self.frame = cap.read()
+
+        if not self.ret:
+            print("Can't receive frame (stream end?). Exiting ...")
+            return
         
-    # Capture frame-by-frame
-    ret, frame = cap.read()
+        return self.frame
     
-    print(ret)
-    print(frame)   
+    def ReleaseCap(self):
+        self.cap.release()
 
-    # if frame is read correctly ret is True
-    if not ret:
-        print("Can't receive frame (stream end?). Exiting ...")
-        return  
 
-    print(frame.shape) 
+
+def VideoOpencv(cap):
+
+    frame = cap.GetFrame()
+    print(frame.shape)
 
     # Our operations on the frame come here
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     # Display the resulting frame
     cv2.imshow('frame', gray)
     if cv2.waitKey(1) & 0xFF == ord('q'):
-        return 
+        return
 
     sleep(10)
     # When everything done, release the capture
-    cap.release()
     cv2.destroyAllWindows()
 
 
@@ -91,10 +95,9 @@ def Laser():
 
 
 if __name__ == "__main__":
-    # OpencvObejct()
-    # CameraModule()
-    # Laser()
-
-    VideoOpencv()
+    CaptureObejct = VideoCamera()
+    while(1):
+        
+        VideoOpencv(CaptureObejct)
 
     print('succuss')
