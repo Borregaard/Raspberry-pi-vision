@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 import os
 
-
+index = -1
 LASER_PIN = 14
 def Laser():
     GPIO.setwarnings(False)
@@ -19,7 +19,7 @@ def Laser():
 
 class VideoCamera():
     def __init__(self):
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(index, cv2.CAP_V4L)
         print(self.cap)
 
         if not self.cap.isOpened():
@@ -41,7 +41,7 @@ class VideoCamera():
 
 
 def VideoOpencv(cap2):
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(index, cv2.CAP_V4L)
     ret, frame = cap.read()
     #frame = cap.GetFrame()
 
