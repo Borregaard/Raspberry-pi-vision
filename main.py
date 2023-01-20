@@ -53,7 +53,7 @@ class VideoCamera():
     
     def GetFrame(self):
         # Capture frame-by-frame
-        self.ret, self.frame = cap.read()
+        self.ret, self.frame = self.cap.read()
 
         if not self.ret:
             print("Can't receive frame (stream end?). Exiting ...")
