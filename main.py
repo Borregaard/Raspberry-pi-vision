@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 import os
 
-index = -1
+index = 1
 LASER_PIN = 14
 def Laser():
     GPIO.setwarnings(False)
