@@ -110,6 +110,8 @@ def LaserDection():
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
         mask = cv2.inRange(hsv, lower_red, upper_red)
         edged = cv2.Canny(mask, 30, 200)
+
+        cv2.imshow('Mask', mask)
         cv2.imshow('Canny Edges After Contouring', edged)
         print(cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE))
         #_, contours, hierarchy = cv2.findContours(
