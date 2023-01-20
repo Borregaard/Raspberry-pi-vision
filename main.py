@@ -42,6 +42,7 @@ class VideoCamera():
 
 def VideoOpencv(cap2):
     cap = cv2.VideoCapture(0)
+    ret, frame = cap.read()
     frame = cap.GetFrame()
 
     # Our operations on the frame come here
