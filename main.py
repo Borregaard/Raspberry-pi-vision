@@ -44,7 +44,7 @@ def OpencvObejct():
 
 class VideoCamera():
     def __init__(self):
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(-1)
         print(self.cap)
 
         if not self.cap.isOpened():
