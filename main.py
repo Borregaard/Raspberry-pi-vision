@@ -62,9 +62,9 @@ def VideoOpencv(cap2):
 
 
 if __name__ == "__main__":
-    CaptureObejct = VideoCamera()
+    #CaptureObejct = VideoCamera()
     while(1):
         
-        VideoOpencv(CaptureObejct)
+        VideoOpencv(1)
 
     print('succuss')
