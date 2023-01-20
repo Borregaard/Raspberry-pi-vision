@@ -94,11 +94,11 @@ def Works():
 
 def LaserDection():
     # set red thresh
-    #lower_red = np.array([0, 0, 255])
-    lower_red = np.array([0, 0, 0])
+    lower_red = np.array([0, 0, 255])
+    #lower_red = np.array([0, 0, 0])
     #156, 100, 40
-    #upper_red = np.array([180, 255, 255])
-    upper_red = np.array([255, 255, 255])
+    upper_red = np.array([180, 255, 255])
+    #upper_red = np.array([255, 255, 255])
 
     cap = cv2.VideoCapture(0)
 
