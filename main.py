@@ -67,11 +67,38 @@ def Works():
         ret, frame = cap.read()
 
         # Our operations on the frame come here
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         # Display the resulting frame
         cv2.imshow('frame', frame)
-        cv2.imshow('gray', gray)
+        #cv2.imshow('gray', gray)
+
+        b = frame.copy()
+        # set green and red channels to 0
+        b[:, :, 1] = 0
+        b[:, :, 2] = 0
+
+
+        g = frame.copy()
+        # set blue and red channels to 0
+        g[:, :, 0] = 0
+        g[:, :, 2] = 0
+
+        r = frame.copy()
+        # set blue and green channels to 0
+        r[:, :, 0] = 0
+        r[:, :, 1] = 0
+
+
+        # RGB - Blue
+        cv2.imshow('B-RGB', b)
+
+        # RGB - Green
+        cv2.imshow('G-RGB', g)
+
+        # RGB - Red
+        cv2.imshow('R-RGB', r)
+        
         if cv2.waitKey(20) & 0xFF == ord('q'):
             break
 
