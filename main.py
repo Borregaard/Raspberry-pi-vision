@@ -103,6 +103,7 @@ def LaserDection():
     while(True):
         # Capture frame-by-frame
         ret, frame0 = cap.read()
+        print(frame0)
         frame = cv2.flip(frame0, 0)
         frame = frame[50:360, 280:380]
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
