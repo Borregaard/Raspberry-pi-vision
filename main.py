@@ -105,29 +105,11 @@ def LaserDection():
     while(True):
         # Capture frame-by-frame
         ret, frame0 = cap.read()
-        print(frame0)
-        print('frame0')
-        sleep(5)
         frame = cv2.flip(frame0, 0)
-        print(frame)
-        print('frame')
-        sleep(5)
         frame = frame[50:360, 280:380]
-        print(frame)
-        print('frame')
-        sleep(5)
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-        print(hsv)
-        print('hsv')
-        sleep(5)
         mask = cv2.inRange(hsv, lower_red, upper_red)
-        print(mask)
-        print('mask')
-        sleep(5)
         edged = cv2.Canny(mask, 30, 200)
-        print(edged)
-        print('edged')
-        sleep(5)
         cv2.imshow('Canny Edges After Contouring', edged)
         print(cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE))
         #_, contours, hierarchy = cv2.findContours(
@@ -136,23 +118,17 @@ def LaserDection():
             edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         print("Number of Contours found = " + str(len(contours)))
 
-        print(contours)
-        print('contours')
-
-        print(hierarchy)
-        print('hierarchy')
+      
         # Draw all contours
         # -1 signifies drawing all contours
-        for c in contours:
-            M = cv2.moments(c)
-            print(M)
-            print('M')
-            cX = int(M["m10"] / M["m00"])
-            cY = int(M["m01"] / M["m00"])
-            cv2.drawContours(frame, c, -1, (0, 255, 0), 3)
-            cv2.circle(frame, (cX, cY), 2, (255, 255, 255), -1)
-            cv2.putText(frame, "center", (cX - 20, cY - 20),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+        # for c in contours:
+        #     M = cv2.moments(c)
+        #     cX = int(M["m10"] / M["m00"])
+        #     cY = int(M["m01"] / M["m00"])
+        #     cv2.drawContours(frame, c, -1, (0, 255, 0), 3)
+        #     cv2.circle(frame, (cX, cY), 2, (255, 255, 255), -1)
+        #     cv2.putText(frame, "center", (cX - 20, cY - 20),
+        #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
         cv2.imshow('Capture', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
