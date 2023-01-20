@@ -103,6 +103,7 @@ def LaserDection():
         mask = cv2.inRange(hsv, lower_red, upper_red)   
         edged = cv2.Canny(mask, 30, 200)    
         cv2.imshow('Canny Edges After Contouring', edged)
+        print(cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE))
         _, contours, hierarchy = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         print("Number of Contours found = " + str(len(contours)))
 
@@ -112,7 +113,7 @@ def LaserDection():
             M = cv2.moments(c)
             cX = int(M["m10"] / M["m00"])
             cY = int(M["m01"] / M["m00"])
-            cv2.drawContours(frame, c, -1, (0, 255, 0), 3)
+            cv2.drawContours(frame, c, -1, (0, 255, 0), 3)  
             cv2.circle(frame,(cX,cY),2,(255,255,255),-1)
             cv2.putText(frame,"center",(cX - 20, cY - 20),cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2)
         cv2.imshow('Capture',frame)
